@@ -1,4 +1,4 @@
-# Django settings for summerblog project.
+# Django settings for familypix project.
 import os
 
 DEBUG = True
@@ -17,9 +17,9 @@ DATABASES = {
              
     'default': {
        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-       'NAME': os.path.join(BASE_DIR, 'summerblog.sqlite3'),                      # Or path to database file if using sqlite3.
+       'NAME': os.path.join(BASE_DIR, 'familypix.sqlite3'),                      # Or path to database file if using sqlite3.
         #'ENGINE' : 'django.db.backends.mysql',
-        #'NAME': 'summerblog',
+        #'NAME': 'familypix',
         # The following settings are not used with sqlite3:
         #'USER': 'root',
         #'PASSWORD': 'matrix3',
@@ -107,10 +107,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'summerblog.urls'
+ROOT_URLCONF = 'familypix.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'summerblog.wsgi_local.application'
+WSGI_APPLICATION = 'familypix.wsgi_local.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -130,7 +130,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
-    'summerblog',
+    'familypix',
     'ckeditor',
     'storages',
 )

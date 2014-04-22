@@ -1,0 +1,13 @@
+{% extends "familypix/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+	Circles:
+	<br /><br />
+	{% for circle in circles %}
+		{{ circle.name }}
+		<br />	
+	{% endfor %}
+	
+{% endblock %}

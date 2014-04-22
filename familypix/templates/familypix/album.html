@@ -1,0 +1,12 @@
+{% extends "familypix/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	{% for photo in photos %}
+			<h3>{{ photo.name }} </h3>
+			<br />
+			<img src="{% static photo.photo.url %}"></img>
+			<br />
+	{% endfor %}
+
+{% endblock %}

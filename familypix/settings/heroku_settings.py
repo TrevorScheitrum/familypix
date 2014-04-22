@@ -58,7 +58,7 @@ WSGI_APPLICATION = 'settings.wsgi.application'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-AWS_STORAGE_BUCKET_NAME = "summerblog-assets"
+AWS_STORAGE_BUCKET_NAME = "familypix-assets"
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 

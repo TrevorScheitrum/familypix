@@ -3,7 +3,7 @@
 # user-provision.sh
 # - Provisions a development environment for boomers-web
 
-ENV=summerblog
+ENV=familypix
 PROFILE=/home/vagrant/.bash_profile
 WORKON_HOME=/home/vagrant/.virtualenvs
 

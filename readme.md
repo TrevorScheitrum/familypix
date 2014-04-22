@@ -1,4 +1,4 @@
-summerblog
+familypix
 ==========
 
 Summer Travel Blog - This is a custom build blog to showcase my travelings
