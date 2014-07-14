@@ -1,23 +1,31 @@
 from django.contrib import admin
-from familypix.models import Photo, Circle, Person
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
+from familypix.models import Photo, Circle, PhotoAlbum, contactList
     
 class PhotoInline(admin.StackedInline):
     model = Photo
     extra = 3
     
 class PhotoAdmin(admin.ModelAdmin):
-    fields = ('name', 'photo', 'permissions',)
+    model = Photo
+    #fields = ('name', 'photo', 'permissions',)
+    
+class PhotoAlbumAdmin(admin.ModelAdmin):
+    model = PhotoAlbum
+    #fields = ('name', 'photos',)
 
 class CircleAdmin(admin.ModelAdmin):
     model = Circle
-    fields = ('name', 'person',)
-    
-class PersonAdmin(admin.ModelAdmin):
-    model = Person
-    fields = ('name','user',)
+    #fields = ('owner','name', 'users')
+
+class contactListAdmin(admin.ModelAdmin):
+    model = contactList
 
 #myModels = [Article,ArticleAdmin]
 #admin.site.register(myModels)
+
 admin.site.register(Photo, PhotoAdmin)
 admin.site.register(Circle, CircleAdmin)
-admin.site.register(Person, PersonAdmin)
+admin.site.register(contactList, contactListAdmin)
+admin.site.register(PhotoAlbum, PhotoAlbumAdmin)

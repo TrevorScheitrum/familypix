@@ -2,11 +2,18 @@
 {% load staticfiles %}
 
 {% block content %}
+
+	User: {{ thisUser }}, currently visiting: {{ URLuser }}'s page
+	<br />
+	{{ URLuser }} is sharing these photos with {{ thisUser }}:
+	<br />
+	<br />
 	{% for photo in photos %}
-			<h3>{{ photo.name }} </h3>
-			<br />
-			<img src="{% static photo.photo.url %}"></img>
-			<br />
-	{% endfor %}
+		<img width=100 height=100 src="{% static photo.photo.url %}">
+		<br/>
+		{% endfor %}
+	<br />
+	
+	
 
 {% endblock %}

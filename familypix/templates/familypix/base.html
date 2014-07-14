@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
 
 <title>Blog Template for Bootstrap</title>
 
@@ -21,35 +20,10 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script>
-    	var img_urls = Array();
-    	var post_heights = Array();
-    	
-    	$( document ).ready(function() {
-    		$(".blog-post").each(function(index){
-    			post_heights.push($(this).position().top);
-    		});
+	<script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+	<script src="{% static "js/dropzone.js" %}"></script>
+	<link href="{% static "css/dropzone.css" %}" rel="stylesheet" type="text/css" />
 
-    		{% for background in backgrounds %}
-    			img_urls.push("{% static background.photo.url %}");
-    		{% endfor %}
-    		
-        	$("body").css("background", "url('"+img_urls[0]+"') no-repeat center center fixed");
-        	$("body").css("background-size", "cover");
-    	});
-    	
-		$( document ).scroll(function() {
-			$.each(post_heights, function( index, value ) {
-				if ($( document ).scrollTop() >= value) {
-					$("body").css("background", "url('"+img_urls[index]+"') no-repeat center center fixed");
-					$("body").css("background-size", "cover");
-				}
-			});
-		});
-	</script>
-    
-    
 </head>
 
 <body>
@@ -65,8 +39,8 @@
 	<div class="container transparent_background">
 
 		<div class="blog-header">
-			<h1 class="blog-title">Summer Blog</h1>
-			<p class="lead blog-description">Summer Blog of Trevor and Robin</p>
+			<h1 class="blog-title">FamilyPix</h1>
+			<p class="lead blog-description">Share Photos with Friends, Family and the Public</p>
 		</div>
 
 		<div class="row">
@@ -76,33 +50,11 @@
 				{% block content %}
 				{% endblock %}
 
-				<ul class="pager">
-					<li><a href="#">Previous</a></li>
-					<li><a href="#">Next</a></li>
-				</ul>
-
 			</div>
 			<!-- /.blog-main -->
 
 			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 				<div class="sidebar-module sidebar-module-inset">
-					<h4>About</h4>
-						<p>about blog</p>
-				</div>
-				<div class="sidebar-module">
-					<h4>Archives</h4>
-					<ol class="list-unstyled">
-						<li><a href="#">January 2014</a></li>
-						<li><a href="#">December 2013</a></li>
-					</ol>
-				</div>
-				<div class="sidebar-module">
-					<h4>Elsewhere</h4>
-					<ol class="list-unstyled">
-						<li><a href="#">GitHub</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Facebook</a></li>
-					</ol>
 				</div>
 			</div>
 			<!-- /.blog-sidebar -->
@@ -126,7 +78,6 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="{% static "js/bootstrap.min.js" %}" rel="stylesheet"></script>
 	<script src="{% static "js/docs.min.js" %}" rel="stylesheet"></script>
 </body>

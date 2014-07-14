@@ -19,6 +19,15 @@ h6, .h6 {
   color: #333;
 }
 
+p{
+	margin-top:10px;
+	margin-bottom:10px;
+	
+}
+
+.helptext{
+	display:block;
+}
 
 /*
  * Override Bootstrap's default container.
