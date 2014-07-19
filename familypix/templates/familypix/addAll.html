@@ -1,0 +1,56 @@
+{% extends "familypix/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+	
+	Current Circles:
+	<br />
+	{% for circle in myCircles %}
+		{{ circle.name }}
+		<br />	
+	{% endfor %}
+	<br />
+	
+	<form enctype="multipart/form-data" action="/addCircle/" name="addCircle" method="post">
+		{% csrf_token %}
+		{{circleForm.as_p}}
+	<input type="submit" value="Add A Circle">
+	</form>
+	<br />
+	<br />
+	<br />
+	<br />
+
+	Current Photo Albums:
+	<br />
+	{% for album in myAlbums %}
+		{{ album.name }}
+		<br />	
+	{% endfor %}
+	<br />
+	<form enctype="multipart/form-data" action="/addAlbum/" name="addAlbum" method="post">
+		{% csrf_token %}
+		{{albumForm.as_p}}
+	<input type="submit" value="Add A PhotoAlbum">
+	</form>
+	<br />
+	<br />
+	<br />
+	<br />
+	
+	Current Photos:
+	<br />
+	{% for photo in myPhotos %}
+		{{ photo.name }}
+		<br />	
+	{% endfor %}
+	<br />
+	<form enctype="multipart/form-data" action="/addPhoto/" name="addPhoto" method="post">
+		{% csrf_token %}
+		{{photoForm.as_p}}
+	<input type="submit" name="add" value="Add a Photo">
+	</form>
+	<br />
+	
+{% endblock %}

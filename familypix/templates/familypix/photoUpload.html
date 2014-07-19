@@ -1,0 +1,27 @@
+{% extends "familypix/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	
+	
+	
+	Current Photos:
+	<br />
+	{% for photo in myPhotos %}
+		{{ photo.name }}
+		<br />	
+	{% endfor %}
+	<br />
+	<form enctype="multipart/form-data" class="dropzone" id="mydropzone" action="/file-upload" name="dropzone" method="post">
+		{% csrf_token %}
+		<script>
+			$(document).one('mouseover', '.dz-image-preview', function(){
+	    		$(this).append("<br />Name: <br /> <input type='text' id='filename'>");     
+			});
+		</script>
+	</form>
+	<br />
+	
+	
+
+{% endblock %}

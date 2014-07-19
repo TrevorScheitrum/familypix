@@ -1,0 +1,74 @@
+{% extends "familypix/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+	
+	
+	
+	Current Photos:
+	<br />
+	{% for photo in myPhotos %}
+		{{ photo.name }}
+		<br />
+	{% endfor %}
+	<br />
+	<br />
+	Upload an Album of Photos
+	<br />
+	
+	<form enctype="multipart/form-data" id="my-dropzone" class="dropzone" name="dropzone" method="post">
+	<div id="divForm">
+	{% csrf_token %}
+	Name: <input type="text" id="batchFilename" name="batchFilename">
+	<br />
+	Permissions:
+	<br />
+
+		{{batchPhotoForm.as_p}}
+		<button type="submit" id='mySubmit'>Submit data and files!</button>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		</div>
+		<script>
+
+		index =0;
+			var myDropzone = new Dropzone("#my-dropzone", { url: "/batchFileUpload/" + index + "/"});
+			
+			myDropzone.options.autoProcessQueue = false;
+			myDropzone.options.uploadMultiple = true;
+			myDropzone.options.parallelUploads = 100;
+			myDropzone.options.maxFiles = 100;			
+			
+		    $("#mySubmit").click(function(e) {
+		        // Make sure that the form isn't actually being sent.
+		        e.preventDefault();
+		        e.stopPropagation();
+		        myDropzone.processQueue();
+		      });
+		    myDropzone.on("addedfile", function(file) {
+		    	index = ++index;
+		    	filename = $("#batchFilename").val() + " photo " + index;
+		    	var defaultRadioButton = Dropzone.createElement("<div><br />Name: <br /> <input type='text' id='imageFilename' data-imageid = '"+index+"' name='imageFilename' value='" + filename +"'></div>");
+		    	file.previewElement.appendChild(defaultRadioButton);
+
+
+		    });
+		    
+		    myDropzone.on("sending", function(file, xhr, formData) {
+		    	var imageFilename = file.previewElement.querySelector("#imageFilename").value;
+		    	var imageIndex = file.previewElement.querySelector("#imageFilename").getAttribute("data-imageid");
+		    	formData.append("imageFilename["+imageIndex+"]", imageFilename); // Will send the filesize along with the file as POST data.
+		    	});
+
+
+		</script>
+	</form>
+	<br />
+	
+	
+
+{% endblock %}
